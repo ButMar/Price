@@ -18,14 +18,22 @@ namespace Price.Controllers
         }
 
 
+        //[HttpGet(Name = "GETPrice")]
+        //public List<Price> GETPrice(string name,int sum)
+        //{
+        //    List<Price> resultDBPrice = db.Prices.Where(x => x.Name == name && x.Price1 > sum).ToList();
+
+        //    return resultDBPrice;
+
+        //}
+
 
         [HttpGet(Name = "GETPrice")]
-        public List<Price> GETPrice(string name, int sum)
+        public Price GETPrice(int price_id)
         {
-            List<Price> resultDBPrice = db.Prices.Where(x => x.Name == name && x.Price1 > sum).ToList();
+            Price resultDBPrice = db.Prices.Where(x => x.PriceId == price_id ).First();
 
             return resultDBPrice;
-
         }
 
     }
